@@ -1,18 +1,15 @@
 # To-Do-List
 
-
-## Presntaion Video
-
-
 ## Live Link
 
+https://banstein.github.io/To-Do-List/
 
 ## Built With!
 
 - HTML
 - CSS
 - JavaScript
-* Webpack
+- Webpack
 
 ## Getting Started
 
@@ -20,7 +17,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-clone repo: https://github.com/Banstein/capstone-the-first
+clone repo: https://banstein.github.io/To-Do-List/
 
 👤 **Author**
 
@@ -37,9 +34,6 @@ Feel free to check the [issues page](../../issues/).
 ## Show your support
 
 Give a ⭐️ if you like this project!
-
-## Acknowledgments
-
 
 ## 📝 License
 
