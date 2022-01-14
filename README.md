@@ -2,7 +2,7 @@
 
 ## Live Link
 
-https://banstein.github.io/To-Do-List/
+[To Do List](https://banstein.github.io/To-Do-List/)
 
 ## Built With!
 
@@ -15,9 +15,10 @@ https://banstein.github.io/To-Do-List/
 
 To get a local copy up and running follow these simple example steps.
 
-### Prerequisites
-
 clone repo: https://banstein.github.io/To-Do-List/
+- npm install
+- npm run build
+- npm start
 
 👤 **Author**
 
