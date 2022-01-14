@@ -1,13 +1,41 @@
-import _ from 'lodash';
 import './style.css';
 
-function component() {
-  const element = document.createElement('div');
+const taskInject = document.querySelector('.task-injector');
 
-  // Lodash, currently included via a script, is required for this line to work
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  element.classList.add('hello');
-  return element;
-}
+const listData = ([
+  {
+    description: 'Module 1 : w1 ~ w5',
+    completed: true,
+    index: 0,
+  },
+  {
+    description: 'Module 2 : w2 ~ w5',
+    completed: false,
+    index: 3,
+  },
+  {
+    description: 'Module 3',
+    completed: false,
+    index: 2,
+  },
+  {
+    description: 'Module 4',
+    completed: false,
+    index: 1,
+  },
+]);
 
-document.body.appendChild(component());
+listData.forEach((data) => {
+  listData.sort((a, b) => a.index - b.index);
+  taskInject.innerHTML += `
+  <li>
+  <div class="task-wrapper">
+  <input type="checkbox" id="task-check" name="${data.index}" ${data.completed ? 'checked' : ''
+}>
+  <label class="dat-task ${data.completed ? 'line-through' : ''}" for="${data.index
+}">${data.description}</label>
+  </div>
+  <i class="fas fa-ellipsis-v" id="task-toggle"></i>
+</li>
+`;
+});
