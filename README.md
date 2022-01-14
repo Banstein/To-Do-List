@@ -1,5 +1,7 @@
 # To-Do-List
 
+A To do list app scraped from minimalist, helps clients to set thier goals and achieve them.
+
 ## Live Link
 
 [To Do List](https://banstein.github.io/To-Do-List/)
