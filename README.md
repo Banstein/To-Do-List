@@ -14,7 +14,7 @@ A To do list app scraped from minimalist, helps clients to set thier goals and a
 
 To get a local copy up and running follow these simple example steps.
 
-clone repo: https://banstein.github.io/To-Do-List/
+clone repo: https://github.com/Banstein/To-Do-List.git
 - npm install
 - npm run build
 - npm start
