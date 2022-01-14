@@ -1,7 +1,7 @@
 # To-Do-List
 
 A To do list app scraped from minimalist, helps clients to set thier goals and achieve them.
-![Screenshot 2022-01-14 021353](https://user-images.githubusercontent.com/35707975/149429081-42289a47-17ee-4075-a9f1-0e23b5382bef.png)
+![Screenshot 2022-01-14 021353](https://user-images.githubusercontent.com/35707975/149429422-7083dd9e-8036-471e-928e-b0dc53098f02.png)
 
 
 ## Live Link
