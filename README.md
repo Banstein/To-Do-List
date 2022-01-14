@@ -20,7 +20,7 @@ clone repo: https://banstein.github.io/To-Do-List/
 - npm run build
 - npm start
 
-👤 **Author**
+## 👤 **Author**
 
 - GitHub: [@Banstein](https://github.com/Banstein)
 - Twitter: [@islam_bahnas](https://twitter.com/islam_bahnas)
