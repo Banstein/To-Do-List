@@ -14,6 +14,8 @@ const listData = ([
     index: 3,
   },
   {
+    description: 'Module 3',
+
     completed: false,
     index: 2,
   },
