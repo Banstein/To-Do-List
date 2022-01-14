@@ -2,7 +2,7 @@ import './style.css';
 
 const taskInject = document.querySelector('.task-injector');
 
-const listData = [
+const listData = ([
   {
     description: 'Module 1 : w1 ~ w5',
     completed: true,
@@ -23,7 +23,7 @@ const listData = [
     completed: false,
     index: 1,
   },
-];
+]);
 
 listData.forEach((data) => {
   listData.sort((a, b) => a.index - b.index);
