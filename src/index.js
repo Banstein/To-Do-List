@@ -30,8 +30,10 @@ listData.forEach((data) => {
   taskInject.innerHTML += `
   <li>
   <div class="task-wrapper">
-    <input type="checkbox" id="task-check" name="${data.index}" ${data.completed ? 'checked' : ''}>
-    <label class="dat-task ${data.completed ? 'line-through' : ''}" for="${data.index}">${data.description}</label>
+  <input type="checkbox" id="task-check" name="${data.index}" ${data.completed ? 'checked' : ''
+}>
+  <label class="dat-task ${data.completed ? 'line-through' : ''}" for="${data.index
+}">${data.description}</label>
   </div>
   <i class="fas fa-ellipsis-v" id="task-toggle"></i>
 </li>
