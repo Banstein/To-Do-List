@@ -1,41 +1,57 @@
 import './style.css';
+import UpdateStorage from './Modules/updateStorage.js';
+import { UpdateTask, saveUpdatedTask } from './Modules/edit.js';
+import { displayTasks, deleteTask, add } from './functions.js';
 
+// variables
+const list = JSON.parse(localStorage.getItem('storedStTask')) || [];
 const taskInject = document.querySelector('.task-injector');
+const taskInput = document.querySelector('.task-input');
+const addBtn = document.querySelector('#add-sign');
 
-const listData = ([
-  {
-    description: 'Module 1 : w1 ~ w5',
-    completed: true,
-    index: 0,
-  },
-  {
-    description: 'Module 2 : w2 ~ w5',
-    completed: false,
-    index: 3,
-  },
-  {
-    description: 'Module 3',
-    completed: false,
-    index: 2,
-  },
-  {
-    description: 'Module 4',
-    completed: false,
-    index: 1,
-  },
-]);
-
-listData.forEach((data) => {
-  listData.sort((a, b) => a.index - b.index);
-  taskInject.innerHTML += `
-  <li>
-  <div class="task-wrapper">
-  <input type="checkbox" id="task-check" name="${data.index}" ${data.completed ? 'checked' : ''
-}>
-  <label class="dat-task ${data.completed ? 'line-through' : ''}" for="${data.index
-}">${data.description}</label>
-  </div>
-  <i class="fas fa-ellipsis-v" id="task-toggle"></i>
-</li>
-`;
+addBtn.addEventListener('click', () => add(taskInput, taskInject));
+taskInput.addEventListener('keypress', (event) => {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    add(taskInput, taskInject);
+  }
 });
+
+document.addEventListener('click', (e) => deleteTask(e, taskInject));
+//
+document.addEventListener('change', (e) => {
+  if (e.target.classList.contains('task-check')) {
+    const changer = e.target.parentNode.parentNode;
+    list.forEach((item) => {
+      if (item.index === Number(changer.id)) {
+        item.completed = !item.completed;
+        UpdateStorage(list);
+        displayTasks(list, taskInject);
+      }
+    });
+  }
+});
+
+taskInject.addEventListener('dblclick', (e) => {
+  if (e.target.classList.contains('dat-task')) {
+    UpdateTask(e);
+    list.forEach((task) => {
+      if (task.description === e.target.innerText) {
+        const taskInput = document.querySelector('.edit');
+        taskInput.addEventListener('keypress', (e) => {
+          if (e.keyCode === 13) {
+            task.description = taskInput.value;
+            UpdateStorage(list);
+            saveUpdatedTask(taskInput.value, e.target.parentNode, taskInput);
+            displayTasks(list, taskInject);
+          }
+        });
+      }
+    });
+  }
+});
+
+// Reload
+window.onload = () => {
+  displayTasks(list, taskInject);
+};

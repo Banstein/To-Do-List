@@ -36,7 +36,7 @@ i {
   opacity: 0.4;
 }
 
-.task-maker {
+.task-input {
   width: 85%;
   background: none;
   outline: none;
@@ -62,18 +62,32 @@ li {
   padding: 15px;
 }
 
-#task-check[type=checkbox] {
+.dat-task {
+  cursor: text;
+}
+
+.task-check[type=checkbox] {
   transform: scale(1.5);
+  margin-right: 10px;
+}
+
+.task-check:checked + .dat-task {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.task-edit {
   margin-right: 4px;
 }
 
-#task-toggle {
-  margin-right: 4px;
-}
-
-.task-delete {
+.complete-delete {
   opacity: 0.6;
   cursor: pointer;
+}
+
+button {
+  background-color: transparent;
+  border: none;
 }
 
 /* myFramework */
