@@ -1,5 +1,7 @@
 import './style.css';
-import { addTask } from './Modules/add.js';
+import addTask from './Modules/add.js';
+import UpdateStorage from './Modules/updateStorage.js';
+import { UpdateTask, saveUpdatedTask } from './Modules/edit.js';
 
 // variables
 let list = JSON.parse(localStorage.getItem('storedStTask')) || [];
@@ -51,17 +53,13 @@ const displayTasks = (tasks) => {
     const iDlt = document.createElement('i');
     iDlt.classList.add('task-delete', 'far', 'fa-trash-alt');
     dltBtn.appendChild(iDlt);
-    //
-    const iEdt = document.createElement('i');
-    iEdt.classList.add('task-edit', 'far', 'fa-edit');
-    edtBtn.appendChild(iEdt);
   });
 };
 
-// update
-function UpdateStorage(e) {
-  localStorage.setItem('storedStTask', JSON.stringify(e));
-}
+// update storage
+// function UpdateStorage(e) {
+//   localStorage.setItem('storedStTask', JSON.stringify(e));
+// }
 // add
 const add = () => {
   if (taskInput.value.trim() !== '') {
@@ -82,6 +80,7 @@ taskInput.addEventListener('keypress', (event) => {
   }
 });
 
+// remove
 document.addEventListener('click', (e) => {
   if (e.target.className === 'task-delete far fa-trash-alt') {
     const eLi = e.target.parentNode.parentNode.parentNode;
@@ -94,20 +93,27 @@ document.addEventListener('click', (e) => {
   }
 });
 
-document.addEventListener('click', (e) => {
-  if (e.target.className === 'task-edit far fa-edit') {
-    const editer = prompt('Update Task!');
-    const eLi = e.target.parentNode.parentNode.parentNode;
-    list.forEach((item) => {
-      if (editer.length > 1 && item.index === Number(eLi.id)) {
-        item.description = editer;
+// edit
+taskInject.addEventListener('dblclick', (e) => {
+  if (e.target.classList.contains('dat-task')) {
+    UpdateTask(e);
+    list.forEach((task) => {
+      if (task.description === e.target.innerText) {
+        const taskInput = document.querySelector('.edit');
+        taskInput.addEventListener('keypress', (e) => {
+          if (e.keyCode === 13) {
+            task.description = taskInput.value;
+            UpdateStorage(list);
+            saveUpdatedTask(taskInput.value, e.target.parentNode, taskInput);
+            displayTasks(list);
+          }
+        });
       }
     });
-    UpdateStorage(list);
-    displayTasks(list);
   }
 });
 
+// Reload
 window.onload = () => {
   displayTasks(list);
 };
