@@ -4,11 +4,10 @@ import { UpdateTask, saveUpdatedTask } from './Modules/edit.js';
 import { displayTasks, deleteTask, add } from './functions.js';
 
 // variables
-let list = JSON.parse(localStorage.getItem('storedStTask')) || [];
+const list = JSON.parse(localStorage.getItem('storedStTask')) || [];
 const taskInject = document.querySelector('.task-injector');
 const taskInput = document.querySelector('.task-input');
 const addBtn = document.querySelector('#add-sign');
-const completeAll = document.querySelector('.complete-delete');
 
 addBtn.addEventListener('click', () => add(taskInput, taskInject));
 taskInput.addEventListener('keypress', (event) => {
