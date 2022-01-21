@@ -96,7 +96,7 @@ document.addEventListener('click', (e) => {
 
 document.addEventListener('click', (e) => {
   if (e.target.className === 'task-edit far fa-edit') {
-    const editer = prompt('Renew Task!');
+    const editer = prompt('Update Task!');
     const eLi = e.target.parentNode.parentNode.parentNode;
     list.forEach((item) => {
       if (editer.length > 1 && item.index === Number(eLi.id)) {
