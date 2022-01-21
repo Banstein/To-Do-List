@@ -1,33 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.6.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,700;0,900;1,100&display=swap" rel="stylesheet">
-    <title>Wbpack Exercise</title>
-<script defer src="main.js"></script></head>
-
-<body>
-    <main>
-        <section>
-            <h1>* Banstein To Doer *</h1>
-            <div class="tasks-container">
-                <div class="tasks-title list-set">
-                    <div>Demo</div>
-                    <i class="fas fa-sync-alt"></i>
-                </div>
-                <div class="tasks-adder list-set">
-                    <input type="text" placeholder="Add here" autofocus class="task-maker">
-                    <i class="fas fa-plus" id="add-sign"></i>
-                </div>
-                <ul class="task-injector"></ul>
-                <div class="task-delete">Clear all completed</div>
-            </div>
-        </section>
-    </main>
-</body>
-</html>
+<head><script defer src="main.js"></script></head>Html Webpack Plugin:
+<pre>
+  Error: Child compilation failed:
+  Module not found: Error: Can't resolve 'html-loader' in 'D:\Programing\Microverse-Github\Module 2\week 2\To-Do-L  ist'
+  ModuleNotFoundError: Module not found: Error: Can't resolve 'html-loader' in 'D:\Programing\Microverse-Github\Mo  dule 2\week 2\To-Do-List'
+      at D:\Programing\Microverse-Github\Module 2\week 2\To-Do-List\node_modules\webpack\lib\Compilation.js:2011:2  8
+      at D:\Programing\Microverse-Github\Module 2\week 2\To-Do-List\node_modules\webpack\lib\NormalModuleFactory.j  s:795:13
+      at eval (eval at create (D:\Programing\Microverse-Github\Module 2\week 2\To-Do-List\node_modules\tapable\lib  \HookCodeFactory.js:33:10), <anonymous>:10:1)
+      at D:\Programing\Microverse-Github\Module 2\week 2\To-Do-List\node_modules\webpack\lib\NormalModuleFactory.j  s:275:22
+      at eval (eval at create (D:\Programing\Microverse-Github\Module 2\week 2\To-Do-List\node_modules\tapable\lib  \HookCodeFactory.js:33:10), <anonymous>:9:1)
+      at D:\Programing\Microverse-Github\Module 2\week 2\To-Do-List\node_modules\webpack\lib\NormalModuleFactory.j  s:538:15
+      at D:\Programing\Microverse-Github\Module 2\week 2\To-Do-List\node_modules\webpack\lib\NormalModuleFactory.j  s:124:11
+      at D:\Programing\Microverse-Github\Module 2\week 2\To-Do-List\node_modules\webpack\lib\NormalModuleFactory.j  s:609:8
+      at D:\Programing\Microverse-Github\Module 2\week 2\To-Do-List\node_modules\neo-async\async.js:2830:7
+      at done (D:\Programing\Microverse-Github\Module 2\week 2\To-Do-List\node_modules\neo-async\async.js:2925:13)  
+  - Compilation.js:2011 
+    [To-Do-List]/[webpack]/lib/Compilation.js:2011:28
+  
+  - NormalModuleFactory.js:795 
+    [To-Do-List]/[webpack]/lib/NormalModuleFactory.js:795:13
+  
+  
+  - NormalModuleFactory.js:275 
+    [To-Do-List]/[webpack]/lib/NormalModuleFactory.js:275:22
+  
+  
+  - NormalModuleFactory.js:538 
+    [To-Do-List]/[webpack]/lib/NormalModuleFactory.js:538:15
+  
+  - NormalModuleFactory.js:124 
+    [To-Do-List]/[webpack]/lib/NormalModuleFactory.js:124:11
+  
+  - NormalModuleFactory.js:609 
+    [To-Do-List]/[webpack]/lib/NormalModuleFactory.js:609:8
+  
+  - async.js:2830 
+    [To-Do-List]/[neo-async]/async.js:2830:7
+  
+  - async.js:2925 done
+    [To-Do-List]/[neo-async]/async.js:2925:13
+  
+  - child-compiler.js:169 
+    [To-Do-List]/[html-webpack-plugin]/lib/child-compiler.js:169:18
+  
+  - Compiler.js:559 
+    [To-Do-List]/[webpack]/lib/Compiler.js:559:11
+  
+  - Compiler.js:1129 
+    [To-Do-List]/[webpack]/lib/Compiler.js:1129:17
+  
+  
+  - Hook.js:18 Hook.CALL_ASYNC_DELEGATE [as _callAsync]
+    [To-Do-List]/[tapable]/lib/Hook.js:18:14
+  
+  - Compiler.js:1125 
+    [To-Do-List]/[webpack]/lib/Compiler.js:1125:33
+  
+  - Compilation.js:2782 finalCallback
+    [To-Do-List]/[webpack]/lib/Compilation.js:2782:11
+  
+  - Compilation.js:3087 
+    [To-Do-List]/[webpack]/lib/Compilation.js:3087:11
+  
+  
+  - Hook.js:18 Hook.CALL_ASYNC_DELEGATE [as _callAsync]
+    [To-Do-List]/[tapable]/lib/Hook.js:18:14
+  
+</pre>
