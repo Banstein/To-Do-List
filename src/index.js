@@ -52,14 +52,6 @@ taskInject.addEventListener('dblclick', (e) => {
   }
 });
 
-completeAll.addEventListener('click', () => {
-  const UncompeledTasks = list.filter((task) => task.completed === false);
-  UncompeledTasks.forEach((task, i) => { (task.index = i + 1); });
-  list = UncompeledTasks;
-  UpdateStorage(list);
-  displayTasks(list, taskInject);
-});
-
 // Reload
 window.onload = () => {
   displayTasks(list, taskInject);
