@@ -1,3 +1,3 @@
 export default function addTask(arr, obj) {
-  return arr.push(obj);
+  return [...arr, obj];
 }
