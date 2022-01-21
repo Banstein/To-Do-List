@@ -1,5 +1,4 @@
 import './style.css';
-// import addTask from './Modules/add.js';
 import UpdateStorage from './Modules/updateStorage.js';
 import { UpdateTask, saveUpdatedTask } from './Modules/edit.js';
 import { displayTasks, deleteTask, add } from './functions.js';
@@ -24,7 +23,6 @@ document.addEventListener('click', (e) => deleteTask(e, taskInject));
 document.addEventListener('change', (e) => {
   if (e.target.classList.contains('task-check')) {
     const changer = e.target.parentNode.parentNode;
-    // const newArr = [...list];
     list.forEach((item) => {
       if (item.index === Number(changer.id)) {
         item.completed = !item.completed;
@@ -60,7 +58,6 @@ completeAll.addEventListener('click', () => {
   list = UncompeledTasks;
   UpdateStorage(list);
   displayTasks(list, taskInject);
-  console.log(list);
 });
 
 // Reload
