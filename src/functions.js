@@ -1,9 +1,10 @@
 import UpdateStorage from './Modules/updateStorage.js';
 import addTask from './Modules/add.js';
 
-let list = JSON.parse(localStorage.getItem('storedStTask')) || [];
+const getTodos = () => JSON.parse(localStorage.getItem('storedStTask')) || [];
 
-const displayTasks = (tasks, taskInject) => {
+const displayTasks = (taskInject) => {
+  const tasks = getTodos();
   taskInject.innerHTML = '';
   tasks.forEach((task) => {
     const li = document.createElement('li');
@@ -45,16 +46,18 @@ class Task {
   constructor(value) {
     this.description = value;
     this.completed = false;
+    const list = getTodos();
     this.index = list.length + 1;
   }
 }
 
 const add = (taskInput, taskInject) => {
   if (taskInput.value.trim() !== '') {
+    let list = getTodos();
     const newTask = new Task(taskInput.value);
     list = addTask(list, newTask);
     UpdateStorage(list);
-    displayTasks(list, taskInject);
+    displayTasks(taskInject);
     taskInput.value = '';
     taskInput.placeholder = 'Add another Task!';
   } else { taskInput.placeholder = 'Please enter a valid Task!'; }
@@ -62,14 +65,37 @@ const add = (taskInput, taskInject) => {
 
 const deleteTask = (e, taskInject) => {
   if (e.target.className === 'task-delete far fa-trash-alt') {
+    let list = getTodos();
     const eLi = e.target.parentNode.parentNode.parentNode;
     list = list.filter((item) => item.index !== Number(eLi.id));
     list.forEach((item, i) => {
       item.index = i + 1;
     });
     UpdateStorage(list);
-    displayTasks(list, taskInject);
+    displayTasks(taskInject);
+  }
+};
+const gameChange = (e) => {
+  if (e.target.classList.contains('task-check')) {
+    const list = getTodos();
+    const changer = e.target.parentNode.parentNode;
+    list.forEach((item) => {
+      if (item.index === Number(changer.id)) {
+        item.completed = !item.completed;
+      }
+    });
+    UpdateStorage(list);
   }
 };
 
-export { displayTasks, deleteTask, add };
+const demolishAll = (taskInject) => {
+  const allTasks = getTodos();
+  const UncompeledTasks = allTasks.filter((task) => task.completed === false);
+  UncompeledTasks.forEach((task, i) => { (task.index = i + 1); });
+  UpdateStorage(UncompeledTasks);
+  displayTasks(taskInject);
+};
+
+export {
+  displayTasks, deleteTask, add, gameChange, getTodos, demolishAll,
+};

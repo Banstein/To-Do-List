@@ -1,13 +1,17 @@
 import './style.css';
 import UpdateStorage from './Modules/updateStorage.js';
 import { UpdateTask, saveUpdatedTask } from './Modules/edit.js';
-import { displayTasks, deleteTask, add } from './functions.js';
+import {
+  displayTasks, deleteTask, add, gameChange, getTodos, demolishAll,
+} from './functions.js';
 
 // variables
-const list = JSON.parse(localStorage.getItem('storedStTask')) || [];
+// let list = JSON.parse(localStorage.getItem('storedStTask')) || [];
+
 const taskInject = document.querySelector('.task-injector');
 const taskInput = document.querySelector('.task-input');
 const addBtn = document.querySelector('#add-sign');
+const completeAll = document.querySelector('.complete-delete');
 
 addBtn.addEventListener('click', () => add(taskInput, taskInject));
 taskInput.addEventListener('keypress', (event) => {
@@ -17,24 +21,15 @@ taskInput.addEventListener('keypress', (event) => {
   }
 });
 
+// Events
 document.addEventListener('click', (e) => deleteTask(e, taskInject));
-//
-document.addEventListener('change', (e) => {
-  if (e.target.classList.contains('task-check')) {
-    const changer = e.target.parentNode.parentNode;
-    list.forEach((item) => {
-      if (item.index === Number(changer.id)) {
-        item.completed = !item.completed;
-        UpdateStorage(list);
-        displayTasks(list, taskInject);
-      }
-    });
-  }
-});
+document.addEventListener('change', (e) => gameChange(e));
+completeAll.addEventListener('click', () => demolishAll(taskInject));
 
 taskInject.addEventListener('dblclick', (e) => {
   if (e.target.classList.contains('dat-task')) {
     UpdateTask(e);
+    const list = getTodos();
     list.forEach((task) => {
       if (task.description === e.target.innerText) {
         const taskInput = document.querySelector('.edit');
@@ -43,7 +38,7 @@ taskInject.addEventListener('dblclick', (e) => {
             task.description = taskInput.value;
             UpdateStorage(list);
             saveUpdatedTask(taskInput.value, e.target.parentNode, taskInput);
-            displayTasks(list, taskInject);
+            displayTasks(taskInject);
           }
         });
       }
@@ -53,5 +48,5 @@ taskInject.addEventListener('dblclick', (e) => {
 
 // Reload
 window.onload = () => {
-  displayTasks(list, taskInject);
+  displayTasks(taskInject);
 };
