@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/Banstein/To-Do-List/issues"
   },
-  "homepage": "https://github.com/Banstein/To-Do-List",
+  "homepage": "https://banstein.github.io/To-Do-List/",
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "css-loader": "^6.5.1",
