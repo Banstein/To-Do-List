@@ -1,5 +1,5 @@
 import UpdateStorage from './Modules/updateStorage.js';
-import addTask from './Modules/add.js';
+import { addTask } from './Modules/addRemove.js';
 
 const getTodos = () => JSON.parse(localStorage.getItem('storedStTask')) || [];
 
@@ -53,9 +53,9 @@ class Task {
 
 const add = (taskInput, taskInject) => {
   if (taskInput.value.trim() !== '') {
-    let list = getTodos();
+    const list = getTodos();
     const newTask = new Task(taskInput.value);
-    list = addTask(list, newTask);
+    addTask(list, newTask);
     UpdateStorage(list);
     displayTasks(taskInject);
     taskInput.value = '';
