@@ -1,4 +1,4 @@
-import { addTask, removeTask } from './addRemove.js';
+import { addTask, removeTask } from './src/Modules/addRemove.js';
 
 describe('testing add', () => {
   const task = { index: 1 };
@@ -8,7 +8,7 @@ describe('testing add', () => {
     expect(list.length).toBe(1);
   });
 
-  it('adding and chacking task description', () => {
+  it('adding and checking task description', () => {
     addTask(list, task);
     expect(list.length).toBe(2);
   });
