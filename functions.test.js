@@ -1,4 +1,6 @@
 import { addTask, removeTask } from './src/Modules/addRemove.js';
+import LocalStorage from './src/__mock__/localStorageMock.js';
+import domMock from './src/__mock__/domMock.js';
 
 describe('testing add', () => {
   const task = { index: 1 };
@@ -25,5 +27,37 @@ describe('testing delete', () => {
 
   it('test if first element is deleted', () => {
     expect(removeTask(list2, deleteIndex).length).toBe(1);
+  });
+});
+
+describe('localStorage', () => {
+  it('Adds an item to the mock localStorage', () => {
+    const localStorage = new LocalStorage();
+    const key = 'mockKey';
+    const value = 'stringValue';
+
+    localStorage.setItem(key, value);
+
+    expect(
+      Object.keys(localStorage.storage).length,
+    ).toEqual(1);
+  });
+
+  it('gets the items from the mock localStorage', () => {
+    const localStorage = new LocalStorage();
+    const key = 'mockKey';
+    const value = 'stringValue';
+    localStorage.setItem(key, value);
+
+    const receivedValue = localStorage.getItem(key);
+
+    expect(receivedValue).toEqual(value);
+  });
+});
+
+describe('domMock', () => {
+  it('create a ul in the document', () => {
+    domMock();
+    expect(document.children.length).toEqual(1);
   });
 });

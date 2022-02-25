@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "to do list project",
   "private": true,
+  "jest": {
+    "verbose": true,
+    "testEnvironment": "jsdom"
+  },
   "scripts": {
     "test": "jest",
     "start": "webpack serve --open",
